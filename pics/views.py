@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
 import datetime as dt
+from .models import Photo
 
 # Create your views here.
 def welcome(request):
@@ -35,4 +36,22 @@ def past_days_pics(request,past_date):
         if date == dt.date.today():
             return redirect(pics_of_day)
 
-        return render(request, 'all-pics/past-pics.html', {"date": date})
+        return render(request, 'all-pics/past-pics.html', {"date": date,"pics":pics})
+
+def pics_today(request):
+    date = dt.date.today()
+    news = Photo.todays_pics()
+    return render(request, 'all-pics/today-pics.html', {"date": date,"pics":pics})
+
+def search_results(request):
+
+    if 'photo' in request.GET and request.GET["Photo"]:
+        search_term = request.GET.get("Photo")
+        searched_articles = Photo.search_by_title(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-pics/search.html',{"message":message,"photos": searched_articles})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-news/search.html',{"message":message})
