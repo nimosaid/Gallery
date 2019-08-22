@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404
 import datetime as dt
 
@@ -20,24 +20,19 @@ def convert_dates(dates):
     # Returning the actual day of the week
     day = days[day_number]
     return day
-
+# View Function to present pics from past days
 def past_days_pics(request,past_date):
      try:
         # Converts data from the string Url
         date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
 
-    except ValueError:
+     except ValueError:
         # Raise 404 error when ValueError is thrown
         raise Http404()
-        # Converts data from the string Url
-        date = dt.datetime.strptime(past_date,'%Y-%m-%d').date()
+        assert False
 
-    day = convert_dates(date)
-    html = f'''
-        <html>
-            <body>
-                <h1>Pics for {day} {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
+
+        if date == dt.date.today():
+            return redirect(pics_of_day)
+
+        return render(request, 'all-pics/past-pics.html', {"date": date})
