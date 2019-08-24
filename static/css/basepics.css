@@ -2,3 +2,6 @@ h1
 {
   color: blue;
 }
+.flaticon-copy:before {
+    content: "\f117";
+}

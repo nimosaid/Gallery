@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 class Photographer(models.Model):
     first_name = models.CharField(max_length =30)
@@ -12,7 +13,7 @@ class Photographer(models.Model):
     def save_photographer(self):
         self.save()
 
-class tags(models.Model):
+class Location(models.Model):
     name = models.CharField(max_length =30)
 
     def __str__(self):
@@ -22,13 +23,15 @@ class Photo(models.Model):
     title = models.CharField(max_length =60)
     post = models.TextField()
     photographer = models.ForeignKey(Photographer,on_delete=models.DO_NOTHING,)
-    tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
+    Location = models.ForeignKey(Location,on_delete=models.DO_NOTHING,)
+    Pixels_image = models.ImageField(upload_to = 'pixels/', blank=True)
 
     @classmethod
-    def days_pics(cls,date):
-        pics = cls.objects.filter(pub_date__date = date)
+    def location(cls):
+        pics = cls.objects.all()
         return pics
+
     @classmethod
     def search_by_title(cls,search_term):
         pics = cls.objects.filter(title__icontains=search_term)
