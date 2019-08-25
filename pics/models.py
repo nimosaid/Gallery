@@ -25,7 +25,7 @@ class Photo(models.Model):
     photographer = models.ForeignKey(Photographer,on_delete=models.DO_NOTHING,)
     pub_date = models.DateTimeField(auto_now_add=True)
     Location = models.ForeignKey(Location,on_delete=models.DO_NOTHING,)
-    Pixels_image = models.ImageField(upload_to = 'pixels/', blank=True)
+    Photos = models.ImageField(upload_to = 'photo/', blank=True)
 
     @classmethod
     def location(cls):

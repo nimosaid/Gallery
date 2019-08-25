@@ -33,8 +33,8 @@ def search_results(request):
         searched_articles = Photo.search_by_title(search_term)
         message = f"{search_term}"
 
-        return render(request, 'all-pics/search.html',{"message":message,"photos": searched_articles})
+        return render(request, 'all-pics/search.html',{"message":message,"photo": searched_articles})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'all-news/search.html',{"message":message})
+        return render(request, 'all-pics/search.html',{"message":message})
