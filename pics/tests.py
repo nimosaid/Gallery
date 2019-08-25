@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Image, Location, Category
+from .models import Image, Location
 # Create your tests here.
 
 class ImageTestClass(TestCase):
@@ -16,7 +16,6 @@ class ImageTestClass(TestCase):
 
     def tearDown(self):
         Image.objects.all().delete()
-        Category.objects.all().delete()
         Location.objects.all().delete()
 
     def test_instance(self):
@@ -54,15 +53,3 @@ class LocationTestClass(TestCase):
         self.loc1.save_location()
         locations=Location.objects.all()
         self.assertTrue(len(locations)>0)
-
-class CategoryTestClass(TestCase):
-    def setUp(self):
-        self.cat1=Category(category="food")
-
-    def test_instance(self):
-        self.assertTrue(isinstance(self.cat1,Category))
-
-    def test_save_category(self):
-        self.cat1.save_category()
-        categories=Category.objects.all()
-        self.assertTrue(len(categories)>0)
