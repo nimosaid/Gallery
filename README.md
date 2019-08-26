@@ -18,7 +18,7 @@ As a user I would like:
 * Copy a link to the photo to share with my friends.
 * View photos based on the location they were taken.
 
-
+-----------------------------------------------------
 
 ## SetUp / Installation Requirements
 ### Prerequisites
