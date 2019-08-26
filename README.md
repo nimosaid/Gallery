@@ -6,6 +6,7 @@
 ## Description
 Picture Patch is a  django application that allows users to view photos and and copy thier link and share with friends. The application allows the user to add a photo and upload it.
 
+-------------------------------------------------
 ## User Stories
 These are the behaviors/features that the application implements for use by a user.
 
