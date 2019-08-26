@@ -26,6 +26,7 @@ As a user I would like:
 * pip install pillow
 * psql
 
+-----------------------------------------------------
 ### Cloning
 * In your terminal:
 
