@@ -28,12 +28,12 @@ def pics_today(request):
 
 def search_results(request):
 
-    if 'photo' in request.GET and request.GET["Photo"]:
+    if 'category' in request.GET and request.GET["Photo"]:
         search_term = request.GET.get("Photo")
-        searched_articles = Photo.search_by_title(search_term)
+        searched_photos = Photo.search_by_cat(search_term)
         message = f"{search_term}"
 
-        return render(request, 'all-pics/search.html',{"message":message,"photo": searched_articles})
+        return render(request, 'all-pics/search.html',{"message":message,"photo": searched_photo})
 
     else:
         message = "You haven't searched for any term"

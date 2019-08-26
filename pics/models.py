@@ -1,6 +1,15 @@
 from django.db import models
 import datetime as dt
 
+
+class Category(models.Model):
+    name = models.CharField(max_length =30)
+
+    def __str__(self):
+        return self.name
+    def save_Category(self):
+        self.save()
+
 class Photographer(models.Model):
     first_name = models.CharField(max_length =30)
     last_name = models.CharField(max_length =30)
@@ -34,5 +43,5 @@ class Photo(models.Model):
 
     @classmethod
     def search_by_title(cls,search_term):
-        pics = cls.objects.filter(title__icontains=search_term)
+        pics = cls.objects.filter(category__icontains=search_term)
         return pics
