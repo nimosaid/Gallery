@@ -39,6 +39,7 @@ As a user I would like:
 * [Django]
 * [Heroku](https://heroku.com)
 
+--------------------------------------------------
 ## Contributions
 
 - Git clone 
