@@ -33,6 +33,7 @@ As a user I would like:
         $ git clone https://github.com/nimosaid/Gallery/
         
 
+---------------------------------------------------
 ## Technologies Used
 * [Python3.6](https://www.python.org/)
 * [Django]
