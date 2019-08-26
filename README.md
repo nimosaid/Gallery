@@ -1,6 +1,7 @@
 # PICTURE PATCH
 
 ## Built By [NIMO SAID](https://github.com/nimosaid/)
+--------------------------------------------------
 
 ## Description
 Picture Patch is a  django application that allows users to view photos and and copy thier link and share with friends. The application allows the user to add a photo and upload it.
